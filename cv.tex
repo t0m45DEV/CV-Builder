@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage[margin=3cm]{geometry} % Margenes
 
+\usepackage{lipsum}
 \usepackage{tikz}
 \usepackage{etoolbox}
 \usepackage{graphics}
@@ -14,21 +15,25 @@
 
     \pagestyle{empty}
 
-    \begin{center}
-        \huge \name
+    \begin{multicols}{2}
+        \begin{tikzpicture}
+            \clip (0,0) circle (2.5cm) node {\includegraphics[scale=0.11]{photos/you.jpeg}};
+        \end{tikzpicture}
+
+        \begin{center}
+            \huge \name
 
         \normalsize
-            \begin{multicols}{3}
-                \begin{itemize}
-                    \item[\faEnvelope] \email
-                    \item[\faAddressBook] \phonenumber
-                    \item[\faMapMarker*] \location
-                    \item[\faCalendar*] \birthday \slash \birthmonth \slash \birthyear
-                    \item[\faLinkedin] \linkedinUser
-                    \item[\faGithub] \githubUser
-                \end{itemize}
-            \end{multicols}
-    \end{center}
+            \begin{itemize}
+                \item[\faEnvelope] \email
+                \item[\faAddressBook] \phonenumber
+                \item[\faMapMarker*] \location
+                \item[\faCalendar*] \birthday \slash \birthmonth \slash \birthyear
+                \item[\faLinkedin] \linkedinUser
+                \item[\faGithub] \githubUser
+            \end{itemize}
+        \end{center}
+    \end{multicols}
 
     \input{display_cv}
 
