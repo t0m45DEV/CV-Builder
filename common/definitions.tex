@@ -7,10 +7,12 @@
 \newcommand{\iconForSkills}{\faFlask}
 \newcommand{\iconForPortfolio}{\faBriefcase}
 
+\newcommand{\iconForLists}{\faCaretRight}
+
 \newcommand{\academicEntry}[3]{\workEntry{#1}{#2}{#3}{}}
 
 \newcommand{\workEntry}[4]{\nopagebreak[4]
-  \item[\faCaretRight] \nopagebreak[4] {#1}                                        % Jobname
+  \item[\iconForLists] \nopagebreak[4] {#1}                                        % Jobname
   \nopagebreak[4] \ifthenelse{\equal{#2}{}}{}{ \\ \textit{#2}}                     % Company
   \nopagebreak[4] \ifthenelse{\equal{#3}{}}{}{ \\ {\footnotesize \faCalendar* #3}} % Duration
   \nopagebreak[4] \ifthenelse{\equal{#4}{}}{}{ \\ \hangindent=2em\hangafter=0
@@ -28,12 +30,14 @@
 }
 
 \newcommand{\languageEntryGeneric}[7]{\nopagebreak[4]
-    \item[\faCaretRight] \nopagebreak[4] {#1}
-    \begin{itemize}
-        \item[\faPeopleArrows] \nopagebreak[4] \textAndMetric{#2}{#3}{\topMetric}
-        \item[\faPen] \nopagebreak[4] \textAndMetric{#4}{#5}{\topMetric}
-        \item[\faBook] \nopagebreak[4] \textAndMetric{#6}{#7}{\topMetric}
-    \end{itemize}
+    \begin{samepage}
+        \item[\iconForLists] \nopagebreak[4] {#1}
+        \begin{itemize}
+            \item[\faPeopleArrows] \nopagebreak[4] \textAndMetric{#2}{#3}{\topMetric}
+            \item[\faPen] \nopagebreak[4] \textAndMetric{#4}{#5}{\topMetric}
+            \item[\faBook] \nopagebreak[4] \textAndMetric{#6}{#7}{\topMetric}
+        \end{itemize}
+    \end{samepage}
 }
 
 \newcommand{\separator}[2]{\section*{#1 \space #2}}
