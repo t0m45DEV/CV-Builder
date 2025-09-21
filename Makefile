@@ -24,6 +24,7 @@ define DISPLAY_CV_CONTENT
 \input{info/$(CURR_LANGUAGE)/education}
 \input{info/$(CURR_LANGUAGE)/$(CURR_MODE)/experience}
 \input{info/$(CURR_LANGUAGE)/languages}
+\input{info/$(CURR_LANGUAGE)/$(CURR_MODE)/skills}
 \input{info/$(CURR_LANGUAGE)/$(CURR_MODE)/portfolio}
 endef
 
