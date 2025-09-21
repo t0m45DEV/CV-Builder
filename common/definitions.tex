@@ -1,5 +1,7 @@
 \usepackage{ifthen}
 
+\newcommand{\academicEntry}[3]{\workEntry{#1}{#2}{#3}{}}
+
 \newcommand{\workEntry}[4]{\nopagebreak[4]
   \item \nopagebreak[4] {#1}                                                   % Jobname
   \nopagebreak[4] \ifthenelse{\equal{#2}{}}{}{ \\ \textit{#2}}                 % Company
@@ -8,5 +10,5 @@
     \small {#4} \normalsize}                      % Description
 }
 
-\newcommand{\separator}[1]{\section*{#1}}
-\newcommand{\separatorLine}[1]{\noindent\hrulefill\section*{#1}}
+\newcommand{\separator}[2]{\section*{#1 \space #2}}
+\newcommand{\separatorLine}[2]{\noindent\hrulefill\separator{#1}{#2}}
