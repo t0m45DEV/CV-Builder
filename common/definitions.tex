@@ -1,9 +1,9 @@
 \usepackage{ifthen}
 
 \newcommand{\workEntry}[4]{\nopagebreak[4]
-  \item \nopagebreak[4] {#1}                                      % Jobname
-  \nopagebreak[4] \ifthenelse{\equal{#2}{}}{}{ \\ \textit{#2}}    % Company
-  \nopagebreak[4] \ifthenelse{\equal{#3}{}}{}{ \\ {#3}}           % Duration
+  \item \nopagebreak[4] {#1}                                                   % Jobname
+  \nopagebreak[4] \ifthenelse{\equal{#2}{}}{}{ \\ \textit{#2}}                 % Company
+  \nopagebreak[4] \ifthenelse{\equal{#3}{}}{}{ \\ {\footnotesize \faCalendar* #3}}           % Duration
   \nopagebreak[4] \ifthenelse{\equal{#4}{}}{}{ \\ \hangindent=2em\hangafter=0
     \small {#4} \normalsize}                      % Description
 }
