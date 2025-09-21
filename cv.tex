@@ -5,6 +5,7 @@
 \usepackage{etoolbox}
 \usepackage{graphics}
 \usepackage{fontawesome5}
+\usepackage{multicol}
 
 \input{common/definitions}
 \input{common/personal_info}
@@ -17,11 +18,16 @@
         \huge \name
 
         \normalsize
-            \faEnvelope \space \email
-            \space \space
-            \faAddressBook \space \phonenumber
-            \space \space
-            \faMapMarker* \space \location
+            \begin{multicols}{3}
+                \begin{itemize}
+                    \item[\faEnvelope] \email
+                    \item[\faAddressBook] \phonenumber
+                    \item[\faMapMarker*] \location
+                    \item[\faCalendar*] \birthday \slash \birthmonth \slash \birthyear
+                    \item[\faLinkedin] \linkedinUser
+                    \item[\faGithub] \githubUser
+                \end{itemize}
+            \end{multicols}
     \end{center}
 
     \input{display_cv}
