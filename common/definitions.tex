@@ -24,12 +24,14 @@
 \newcommand{\textAndMetric}[3]{
     {#1}\hfill
     \foreach \x in {1,..., #3}{
-        \ifnumgreater{\x}{#2}{\faSquare[regular]}{\faSquare}
+        \getLevelSquare{\x}{#2}
     }
     \vspace{-2pt}
 }
 
-\newcommand{\languageEntryGeneric}[7]{\nopagebreak[4]
+\newcommand{\languageEntryGeneric}{\languageEntryTableGeneric}
+
+\newcommand{\languageEntrySimpleGeneric}[7]{
     \begin{samepage}
         \item[\iconForLists] \nopagebreak[4] {#1}
         \begin{itemize}
@@ -39,6 +41,30 @@
         \end{itemize}
     \end{samepage}
 }
+
+\newcommand{\languageEntryTableGeneric}[4]{
+    \def\beginnerLevel{#1}
+    \def\mediumLevel{#2}
+    \def\advancedLevel{#3}
+    \def\nativeLevel{#4}
+    \completeLanguageTable
+}
+
+\newcommand{\getLevelSquare}[2]{\ifnumgreater{#1}{#2}{\faSquare[regular]}{\faSquare}}
+
+\newcommand{\completeLanguageTable}[7]{
+    \def\spaceBetweenLines{\\ \vspace{5pt}}
+    \item[\iconForLists] \nopagebreak[4] {#1} \\
+    \begin{samepage}
+        \begin{tabular*}{13cm}{@{\extracolsep{\fill}} c c c c c}
+            & \beginnerLevel & \mediumLevel & \advancedLevel & \nativeLevel \spaceBetweenLines
+            \faPeopleArrows \space #2 & \getLevelSquare{1}{#3} & \getLevelSquare{2}{#3} & \getLevelSquare{3}{#3} & \getLevelSquare{4}{#3} \spaceBetweenLines
+            \faPen \space #4 & \getLevelSquare{1}{#5} & \getLevelSquare{2}{#5} & \getLevelSquare{3}{#5} & \getLevelSquare{4}{#5} \spaceBetweenLines
+            \faBook \space #6 & \getLevelSquare{1}{#7} & \getLevelSquare{2}{#7} & \getLevelSquare{3}{#7} & \getLevelSquare{4}{#7} \spaceBetweenLines
+        \end{tabular*}
+    \end{samepage}
+}
+
 
 \newcommand{\skillEntry}[1]{\item[\iconForLists] #1}
 
