@@ -12,7 +12,7 @@
 \newcommand{\academicEntry}[3]{\workEntry{#1}{#2}{#3}{}}
 
 \newcommand{\workEntry}[4]{\nopagebreak[4]
-    \item[\iconForLists] \nopagebreak[4] {#1}                                        % Jobname
+    \item[\iconForLists] \nopagebreak[4] {\underline{#1}}                                        % Jobname
     \nopagebreak[4] \ifthenelse{\equal{#2}{}}{}{ \\ \textit{#2}}                     % Company
     \nopagebreak[4] \ifthenelse{\equal{#3}{}}{}{ \\ {\footnotesize \faCalendar* #3}} % Duration
     \nopagebreak[4] \ifthenelse{\equal{#4}{}}{}{ \\ \hangindent=2em\hangafter=0
