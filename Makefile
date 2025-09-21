@@ -20,7 +20,7 @@ PDF = cv-$(CURR_MODE)-$(CURR_LANGUAGE)
 
 define DISPLAY_CV_CONTENT
 \input{info/$(CURR_LANGUAGE)/utils}
-\input{info/$(CURR_LANGUAGE)/about_me}
+\input{info/$(CURR_LANGUAGE)/$(CURR_MODE)/about_me}
 \input{info/$(CURR_LANGUAGE)/education}
 \input{info/$(CURR_LANGUAGE)/$(CURR_MODE)/experience}
 \input{info/$(CURR_LANGUAGE)/languages}
