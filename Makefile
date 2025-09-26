@@ -17,7 +17,7 @@ CURR_CV_STL = $(CV_STL_HARVARD)
 LATEX = pdflatex
 TEX = cv-$(CURR_CV_STL).tex
 CV_FILE = display_cv.tex
-CV_TITLE_FILE = cv_title.tex
+CV_TITLE_FILE = cv_curr_title.tex
 
 CV_COLOR_COL_FILE = cv-$(CV_STL_COLOR)-column.tex
 CV_COLOR_COL_BOT_FILE = cv-$(CV_STL_COLOR)-column-bottom.tex

@@ -3,5 +3,5 @@
 *.aux
 *.vrb
 display_cv.tex
-cv_title.tex
+cv_curr_title.tex
 cv-color-*
