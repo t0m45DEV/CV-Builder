@@ -1,0 +1,79 @@
+\documentclass[11pt,oneside,a4paper,tittlepage]{article}
+
+\usepackage[most]{tcolorbox}
+
+\usepackage{fontawesome5}
+\usepackage{multicol}
+
+\usepackage{geometry}
+
+\geometry{
+    a4paper,
+    left=0.5cm,
+    right=0.5cm,
+    top=0.5cm,
+    bottom=0.5cm
+}
+
+\definecolor{titleBackground}{RGB}{14,52,102}
+\definecolor{leftcolBackground}{RGB}{210,210,210}
+
+\title{CV}
+\date{}
+
+\input{common/definitions}
+\input{common/personal_info}
+
+\newcommand{\showPhoto}{
+\begin{tikzpicture}
+    \clip (0,0) circle (1.8cm) node {\includegraphics[scale=0.085]{photos/you.jpeg}};
+\end{tikzpicture}
+}
+
+\begin{document}
+    \tcbset{colframe=gray!95!black,colback=titleBackground}
+    \begin{tcolorbox}
+        \setlength{\columnsep}{-5cm}
+        \begin{multicols}{2}
+            \begin{minipage}{5cm}
+                \begin{center}
+                    \showPhoto
+                \end{center}
+            \end{minipage}
+
+            \begin{minipage}{10cm}
+                \color{white}
+                \vspace{1.3cm}
+                \begin{center}
+                    \Huge{\name} \\
+                    \LARGE{\emph{\input{cv_title}}}
+                \end{center}
+            \end{minipage}
+        \end{multicols}
+    \end{tcolorbox}
+
+    \tcbset{colframe=white,colback=white,arc=0mm}
+    \begin{tcolorbox}
+        \begin{multicols}{2}
+            \begin{minipage}[t]{6.5cm}
+                \begin{tcolorbox}[grow to left by=0.55cm,colback=leftcolBackground,colframe=gray]
+                    \input{cv-color-column}
+                \end{tcolorbox}
+            \end{minipage}
+
+            \begin{minipage}[t]{10cm}
+                \begin{tcolorbox}[grow to left by=3.12cm,colback=white,colframe=white]
+                    \vspace*{-0.52cm}
+                    \input{cv-color-column-side}
+                \end{tcolorbox}
+            \end{minipage}
+        \end{multicols}
+    \end{tcolorbox}
+
+    \begin{minipage}{19cm}
+        \vspace*{-0.5cm}
+        \input{cv-color-column-bottom}
+    \end{minipage}
+
+\end{document}
+

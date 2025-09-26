@@ -1,0 +1,63 @@
+\documentclass[11pt,oneside,a4paper,tittlepage]{article}
+
+\usepackage{geometry}
+
+\geometry{
+    a4paper,
+    left=1cm,
+    right=1cm,
+    top=0.5cm,
+    bottom=0.5cm
+}
+
+\usepackage{ifthen}
+\usepackage{lipsum}
+\usepackage{tikz}
+\usepackage{etoolbox}
+\usepackage{graphics}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{enumitem}
+
+\usepackage{sectsty}
+\sectionfont{\normalsize}
+
+\usepackage{titlesec}
+
+\titlespacing*{\subsection}
+{0pt}{2ex}{1ex}
+
+\input{common/definitions}
+\input{common/personal_info}
+
+\begin{document}
+
+    \pagestyle{empty}
+
+    \setlength\columnsep{5pt}
+    \begin{multicols}{2}
+        \begin{center}
+            \vspace*{0.01cm}
+            \begin{tikzpicture}
+                \draw[thick, fill=black] (0,0) circle (1.8cm);
+                \clip (0,0) circle (1.75cm) node {\includegraphics[scale=0.085]{photos/you.jpeg}};
+            \end{tikzpicture}
+        \end{center}
+
+        \begin{center}
+
+            \vspace*{0.01mm}
+            \huge{\name} \\
+            \Large{\emph{\input{cv_title}}}
+
+            \vspace*{-0.2cm}
+            \begin{multicols}{2}
+                \contactInfo
+            \end{multicols}
+        \end{center}
+    \end{multicols}
+
+    \noindent\hrulefill
+    \input{display_cv}
+
+\end{document}

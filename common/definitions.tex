@@ -9,16 +9,18 @@
 
 \newcommand{\iconForLists}{\faCaretRight}
 
-\newcommand{\academicEntry}[3]{\workEntry{#1}{#2}{#3}{}}
-
-\newcommand{\workEntry}[4]{\nopagebreak[4]
-    \item[\iconForLists] \nopagebreak[4] {\underline{#1}}                                        % Jobname
-    \nopagebreak[4] \ifthenelse{\equal{#2}{}}{}{ \\ \textit{#2}}                     % Company
-    \nopagebreak[4] \ifthenelse{\equal{#3}{}}{}{ \\ {\footnotesize \faCalendar* #3}} % Duration
-    \nopagebreak[4] \ifthenelse{\equal{#4}{}}{}{ \\ \hangindent=2em\hangafter=0
-        \small {#4} \normalsize                                                      % Description
-    }
+\newcommand{\academicEntry}[3]{\nopagebreak[4]
+    \item[\iconForLists] \nopagebreak[4] {#1} \ifthenelse{\equal{#3}{}}{}{\hfill #3}       % Jobname
+    \nopagebreak[4] \ifthenelse{\equal{#2}{}}{}{ \\ \textit{#2}}                     % Companybegin
 }
+
+\newenvironment{workEntry}[3]{\nopagebreak[4]
+    \item[\iconForLists] \nopagebreak[4] {#1} \ifthenelse{\equal{#3}{}}{}{\hfill #3}       % Jobname
+    \nopagebreak[4] \ifthenelse{\equal{#2}{}}{}{ \\ \textit{#2}}                     % Company
+        \\ \hangindent=2em\hangafter=0 \begin{samepage}
+        \small
+    }
+{\end{samepage}}
 
 \newcommand{\topMetric}{4}
 
@@ -30,15 +32,19 @@
     \vspace{-2pt}
 }
 
-\newcommand{\languageEntryGeneric}{\languageEntryTableGeneric}
+\newcommand{\languageEntryGeneric}{\languageEntryBasicGeneric}
+
+\newcommand{\languageEntryBasicGeneric}[2]{
+    \item[\iconForLists] {#1} \hfill \emph{#2}
+}
 
 \newcommand{\languageEntrySimpleGeneric}[7]{
     \begin{samepage}
         \item[\iconForLists] \nopagebreak[4] {#1}
         \begin{itemize}
-            \item[\faPeopleArrows] \nopagebreak[4] \textAndMetric{#2}{#3}{\topMetric}
-            \item[\faPen] \nopagebreak[4] \textAndMetric{#4}{#5}{\topMetric}
-            \item[\faBook] \nopagebreak[4] \textAndMetric{#6}{#7}{\topMetric}
+            \item[] \nopagebreak[4] \textAndMetric{#2}{#3}{\topMetric}
+            \item[] \nopagebreak[4] \textAndMetric{#4}{#5}{\topMetric}
+            \item[] \nopagebreak[4] \textAndMetric{#6}{#7}{\topMetric}
         \end{itemize}
     \end{samepage}
 }
@@ -55,21 +61,27 @@
 
 \newcommand{\completeLanguageTable}[7]{
     \def\spaceBetweenLines{\\ \vspace{5pt}}
-    \item[\iconForLists] \nopagebreak[4] {#1} \\
+\item[\iconForLists] \nopagebreak[4] {\underline{#1}} \vspace{2pt} \\
     \begin{samepage}
-        \begin{tabular*}{13cm}{@{\extracolsep{\fill}} c c c c c}
+        \begin{tabular*}{14cm}{@{\extracolsep{\fill}} c c c c c}
             & \beginnerLevel & \mediumLevel & \advancedLevel & \nativeLevel \spaceBetweenLines
-            \faPeopleArrows \space #2 & \getLevelSquare{1}{#3} & \getLevelSquare{2}{#3} & \getLevelSquare{3}{#3} & \getLevelSquare{4}{#3} \spaceBetweenLines
-            \faPen \space #4 & \getLevelSquare{1}{#5} & \getLevelSquare{2}{#5} & \getLevelSquare{3}{#5} & \getLevelSquare{4}{#5} \spaceBetweenLines
-            \faBook \space #6 & \getLevelSquare{1}{#7} & \getLevelSquare{2}{#7} & \getLevelSquare{3}{#7} & \getLevelSquare{4}{#7} \spaceBetweenLines
+            #2 & \getLevelSquare{1}{#3} & \getLevelSquare{2}{#3} & \getLevelSquare{3}{#3} & \getLevelSquare{4}{#3} \spaceBetweenLines
+            #4 & \getLevelSquare{1}{#5} & \getLevelSquare{2}{#5} & \getLevelSquare{3}{#5} & \getLevelSquare{4}{#5} \spaceBetweenLines
+            #6 & \getLevelSquare{1}{#7} & \getLevelSquare{2}{#7} & \getLevelSquare{3}{#7} & \getLevelSquare{4}{#7} \spaceBetweenLines
         \end{tabular*}
+        \vspace{-15pt}
     \end{samepage}
 }
 
 
 \newcommand{\skillEntry}[1]{\item[\iconForLists] #1}
 
-\newcommand{\portfolioEntry}[2]{\workEntry{#1}{}{}{#2}}
+\newcommand{\portfolioEntry}[2]{\begin{workEntry}{#1}{}{}#2\end{workEntry}}
 
-\newcommand{\separator}[2]{\section*{#1 \space #2}}
-\newcommand{\separatorLine}[2]{\noindent\hrulefill\separator{#1}{#2}}
+\newcommand{\separator}[2]{\subsection*{#1 \space #2}}
+\newcommand{\separatorLine}[2]{\noindent\separator{#1}{#2}}
+
+\newcommand{\range}[2]{#1 -- #2}
+\newcommand{\dateFormat}[2]{\ifstrequal{#1}{}{#2}{#1\slash#2}}
+\newcommand{\dateRange}[4]{\textit{\range{\dateFormat{#1}{#2}}{\dateFormat{#3}{#4}}}}
+
